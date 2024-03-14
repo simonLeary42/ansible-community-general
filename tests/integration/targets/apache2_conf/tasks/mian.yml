@@ -1,0 +1,7 @@
+---
+- name: Prepare for testing
+  include: prepare_{{ ansible_os_family }}.yml
+  when: ansible_os_family in ('Debian', 'Suse')
+
+- include: test_{{ ansible_os_family }}.yml
+  when: ansible_os_family in ('Debian', 'Suse')
